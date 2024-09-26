@@ -5,8 +5,8 @@ import FormRegistro from './components/FormRegistro'
 function App() {
   return (
     <>
-      <Ficha/>
-       {/* <FormRegistro/>  */}
+      <Ficha />
+      <FormRegistro />
     </>
   )
 }

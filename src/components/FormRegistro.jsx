@@ -11,15 +11,15 @@ import { useState } from 'react'
 
 
 function FormRegistro() {
-  const [data, setData] = useState({name:'', breed:''})
+  const [data, setData] = useState({ name: '', breed: '' })
 
   const handleSubmit = (e) => {
     //Para que no mande el formulario, sino que haga lo que yo le diga
     e.preventDefault();
-  
+    console.log(data)
   }
 
-  const handleChangeName = (e) =>{
+  const handleChangeName = (e) => {
     setData({
       ...data,
       name: e.target.value
@@ -28,53 +28,57 @@ function FormRegistro() {
   }
 
 
-  const handleChangeBreed = (e) =>{
-    *rellenarlo
+  const handleChangeBreed = (e) => {
+    setData({
+
+      ...data,
+      breed: e.target.value
+    })
   }
 
-  return(
+  return (
     <Container>
-      <Paper elevation={*rellenarlo} square={*true o false?} sx={{textAlign:'center'}} >
-        <Typography variant='h6' color='elige el color' sx={{mt:2, mb:2}}>Registra tu mascota</Typography>
-        <Box
-          component='form'
-          onSubmit={handleSubmit}
-        >
-          <Grid container spacing={0}>
-            <Grid size={*rellenarlo y hacerlo responsive}>
-              <TextField 
-                required
-                label='Nombre Mascota'
-                variant='outlined'
-                fullWidth
-                value={data.name}
-                onChange={handleChangeName}
-                
-              />
-            </Grid>
-            <Grid size={*rellenarlo y hacerlo responsive}>
-              <TextField 
-                  label='Raza'
-                  variant='outlined'
-                  fullWidth
-                  value=*rellenarlo
-                  onChange=*rellenarlo
-                  
-              />
-            </Grid> 
-            <Grid size={12}>
-              <Button type=*rellenarlo variant='outlined' fullWidth>Registrar</Button>
-            </Grid>    
+      <Paper elevation={12} square={false} sx={{ textAlign: 'center' }} >
+      <Typography variant='h6' color='black' sx={{ mt: 2, mb: 2 }}>Registra tu mascota</Typography>
+      <Box
+        component='form'
+        onSubmit={handleSubmit}
+      >
+        <Grid container spacing={0}>
+          <Grid size={6}>
+            <TextField
+              required
+              label='Nombre Mascota'
+              variant='outlined'
+              fullWidth
+              value={data.name}
+              onChange={handleChangeName}
+
+            />
           </Grid>
-        </Box>
-      </Paper>
-      </Container>
+          <Grid size={6}>
+            <TextField
+              label='Raza'
+              variant='outlined'
+              fullWidth
+              value={data.breed}
+              onChange={handleChangeBreed}
+
+            />
+          </Grid>
+          <Grid size={12}>
+            <Button type='submit' variant='outlined' fullWidth color='gray'>Registrar</Button>
+          </Grid>
+        </Grid>
+      </Box>
+    </Paper>
+      </Container >
     
   )
 
 }
-  
-   
-  
+
+
+
 
 export default FormRegistro
